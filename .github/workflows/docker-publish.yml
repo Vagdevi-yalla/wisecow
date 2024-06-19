@@ -8,8 +8,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
       id-token: write
 
     steps:
@@ -35,6 +33,6 @@ jobs:
         cat ${HOME}/.kube/config
     # configure kubectl to run with the config 
     - name: Use context
-      run: kubectl config use-context octobay-api
+      run: kubectl config set-context --current --namespace=${{ env.NAMESPACE }}
     - name: Deploy to K8s
       run: kubectl apply -f ${{ env.K8S_MANIFEST }}
