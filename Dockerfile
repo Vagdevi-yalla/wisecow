@@ -22,5 +22,5 @@ RUN chmod +x /app/wisecow.sh
 # Exposing the port the server is running on
 EXPOSE 4499
 
-# Running the shell script 
+# Running the shell script ~
 CMD ["./wisecow.sh"]
