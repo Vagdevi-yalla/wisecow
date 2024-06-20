@@ -1,9 +1,18 @@
+#  1. System Health Monitoring Script:
+#  Develop a script that monitors the health of a Linux system. It should check
+#  CPUusage, memory usage, disk space, and running processes. If any of
+#  these metrics exceed predefined thresholds (e.g., CPU usage > 80%), the
+#  script should send an alert to the console or a log file.
+
+
 import psutil
 import logging
 from datetime import datetime
 import time
 from dataclasses import dataclass
 
+
+# creating a data class to store the thresholds under one config
 @dataclass
 class Thresholds():
     CPU_THRESHOLD:float = 80.0  # in percentage
